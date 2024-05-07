@@ -35,6 +35,10 @@ const user = await User.create({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
 })
+await Account.create({
+    userId,
+    balance: 1 + Math.random() * 10000
+})
 const userId = user._id;
 
 const token = jwt.sign({
