@@ -6,7 +6,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/api/v1", rootRouter);
-
-module.exports = router;
+console.log("app listening on port 3000");
 app.listen(3000);
 

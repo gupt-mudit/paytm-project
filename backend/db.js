@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://gupta_mudit:Starboy%4001@cluster0.tyihsd6.mongodb.net/')
 
+mongoose.connect("mongodb://localhost:27017/paytm")
+
+// Create a Schema for Users
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
@@ -30,7 +32,6 @@ const userSchema = new mongoose.Schema({
     }
 });
 
-const User = mongoose.model('User', userSchema);
 const accountSchema = new mongoose.Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId, // Reference to User model
@@ -44,6 +45,9 @@ const accountSchema = new mongoose.Schema({
 });
 
 const Account = mongoose.model('Account', accountSchema);
+const User = mongoose.model('User', userSchema);
+
 module.exports = {
-    User,Account
+	User,
+    Account
 };
